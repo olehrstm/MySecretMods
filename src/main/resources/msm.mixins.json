@@ -1,0 +1,19 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "de.ole101.msm.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "AnvilScreenHandlerMixin"
+    ],
+    "client": [
+        "AbstractSignEditScreenMixin",
+        "AnvilEditScreenMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "overwrites": {
+        "requireAnnotations": true
+    }
+}
