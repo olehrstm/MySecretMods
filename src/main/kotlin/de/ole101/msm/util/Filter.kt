@@ -30,20 +30,26 @@ fun loadVanillaKeybindings() {
 }
 
 fun filterRecursive(message: Text): Text {
-    val content = message.content
-    var filtered = message.copy()
-    if (content is KeybindTextContent) {
-        val keybind: String = content.key
-        if (!isVanillaKeybinding(keybind)) {
-            filtered = MutableText.of(PlainTextContent.Literal(keybind))
+    val filtered: MutableText = when (val content = message.content) {
+        is KeybindTextContent -> {
+            if (!isVanillaKeybinding(content.key)) {
+                MutableText.of(PlainTextContent.Literal(content.key))
+            } else {
+                MutableText.of(content)
+            }
         }
-    }
-    if (content is TranslatableTextContent) {
-        val translationKey: String = content.key
-        if (!isVanillaTranslationKey(translationKey)) {
-            filtered = MutableText.of(PlainTextContent.Literal(translationKey))
+
+        is TranslatableTextContent -> {
+            if (!isVanillaTranslationKey(content.key)) {
+                MutableText.of(PlainTextContent.Literal(content.key))
+            } else {
+                MutableText.of(content)
+            }
         }
+
+        else -> MutableText.of(content)
     }
+
     filtered.style = message.style
     for (sibling in message.siblings) {
         filtered.append(filterRecursive(sibling))
