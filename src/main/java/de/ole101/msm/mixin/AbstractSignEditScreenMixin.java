@@ -16,9 +16,13 @@ public class AbstractSignEditScreenMixin {
 
     @Redirect(
             method = "<init>(Lnet/minecraft/block/entity/SignBlockEntity;ZZLnet/minecraft/text/Text;)V",
-            at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;map(Ljava/util/function/Function;)Ljava/util/stream/Stream;")
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/util/stream/Stream;map(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
+            )
     )
-    private Stream<String> preventSignModDetection(Stream<Text> instance, Function<? super Text, ? extends Text> function) {
+    private Stream<String> preventSignModDetection(Stream<Text> instance,
+            Function<? super Text, ? extends Text> function) {
         return instance.map(message -> filterRecursive(message).getString());
     }
 }
