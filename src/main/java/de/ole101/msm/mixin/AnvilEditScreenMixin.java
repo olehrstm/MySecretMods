@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import static de.ole101.msm.util.FilterKt.filterKeybindsRecursive;
+import static de.ole101.msm.util.FilterKt.filterRecursive;
 
 @Mixin(AnvilScreen.class)
 public class AnvilEditScreenMixin {
@@ -16,7 +16,7 @@ public class AnvilEditScreenMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/text/Text;getString()Ljava/lang/String;")
     )
     private String onSlotUpdate(Text instance) {
-        return filterKeybindsRecursive(instance).getString();
+        return filterRecursive(instance).getString();
     }
 
     @Redirect(
@@ -24,6 +24,6 @@ public class AnvilEditScreenMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/text/Text;getString()Ljava/lang/String;")
     )
     private String onRenamed(Text instance) {
-        return filterKeybindsRecursive(instance).getString();
+        return filterRecursive(instance).getString();
     }
 }

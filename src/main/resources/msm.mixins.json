@@ -4,9 +4,7 @@
     "package": "de.ole101.msm.mixin",
     "compatibilityLevel": "JAVA_21",
     "mixins": [
-        "AnvilScreenHandlerMixin"
-    ],
-    "client": [
+        "AnvilScreenHandlerMixin",
         "AbstractSignEditScreenMixin",
         "AnvilEditScreenMixin"
     ],

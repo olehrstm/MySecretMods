@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-import static de.ole101.msm.util.FilterKt.filterKeybindsRecursive;
+import static de.ole101.msm.util.FilterKt.filterRecursive;
 
 @Mixin(AbstractSignEditScreen.class)
 public class AbstractSignEditScreenMixin {
@@ -19,6 +19,6 @@ public class AbstractSignEditScreenMixin {
             at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;map(Ljava/util/function/Function;)Ljava/util/stream/Stream;")
     )
     private Stream<String> preventSignModDetection(Stream<Text> instance, Function<? super Text, ? extends Text> function) {
-        return instance.map(message -> filterKeybindsRecursive(message).getString());
+        return instance.map(message -> filterRecursive(message).getString());
     }
 }
