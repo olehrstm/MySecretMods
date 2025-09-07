@@ -21,7 +21,7 @@ public class AbstractSignEditScreenMixin {
                     target = "Ljava/util/stream/Stream;map(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
             )
     )
-    private Stream<String> preventSignModDetection(Stream<Text> instance,
+    private Stream<String> filter(Stream<Text> instance,
             Function<? super Text, ? extends Text> function) {
         return instance.map(message -> filterRecursive(message).getString());
     }
