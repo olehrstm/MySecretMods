@@ -5,7 +5,6 @@ plugins {
     kotlin("jvm") version "2.2.10"
     id("fabric-loom") version "1.11.8"
     id("maven-publish")
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.2.10"
 }
 
 version = project.property("mod_version") as String
@@ -40,7 +39,6 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:${project.property("kotlin_loader_version")}")
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
-    modImplementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 }
 
 tasks.processResources {
