@@ -8,7 +8,6 @@
         "AnvilEditScreenMixin",
         "AnvilScreenHandlerMixin",
         "BookScreenContentsMixin",
-        "ItemStackMixin",
         "TranslationStorageMixin"
     ],
     "injectors": {
