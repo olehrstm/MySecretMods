@@ -1,6 +1,6 @@
 # MySecretMods
 
-MySecretMods is a Fabric mod (1.21.8) that helps prevent servers from detecting your installed client-side mods.
+MySecretMods is a Fabric mod (1.21.10) that helps prevent servers from detecting your installed client-side mods.
 
 ## ⚠️ Disclaimer
 
