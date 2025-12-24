@@ -1,5 +1,8 @@
 # MySecretMods
 
+> [!WARNING]
+> I do NOT recommend anyone to use this mod anymore. I have been banned from Cytooxien.net (main development purpose). I recommend using this new and improved mod https://modrinth.com/mod/exploitpreventer.
+
 MySecretMods is a Fabric mod (1.21.10) that helps prevent servers from detecting your installed client-side mods.
 
 ## ⚠️ Disclaimer
